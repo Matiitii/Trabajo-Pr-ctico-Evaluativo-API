@@ -39,7 +39,7 @@ botonFotoDelDia.onclick = function () {
             titulo.textContent = fotos.title
             if (fotos.media_type == 'video') {
                 videoDelDia.style.display = "block";
-                videoDelDia.src = fotos.hdurl
+                videoDelDia.src = fotos.url
             } else {
                 imagenDelDia.src = fotos.hdurl
                 imagenDelDia.style.display = "block";
@@ -52,15 +52,17 @@ botonFotoDelDia.onclick = function () {
 
 
 botonEleccion.onclick = function () {
-if (date <= hoy) {
+if (date.value <= hoy) {
     error.style.display = "none";
  fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&date=${date.value}`)
         .then(res => res.json())
         .then(fotos => {
+            videoDATE.src = " "
+            imagenDATE.src = " "
             console.log(fotos)
             tituloDATE.textContent = fotos.title
             if (fotos.media_type == 'video') {
-                videoDATE.src = fotos.hdurl
+                videoDATE.src = fotos.url
                 videoDATE.style.display = "block";
             } else {
                 imagenDATE.src = fotos.hdurl
@@ -75,27 +77,8 @@ if (date <= hoy) {
 } 
    
 
- /*botonHasta.onclick = function () {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&start_date=${dateDESDE.value}&end_date=${dateHASTA.value}`)
-     .then(res => res.json())
-        .then(fotos => {
-            fotos.forEach(item => {
-                imgOvideoDesdeHasta.innerHTML = ""
-                console.log(item)
-                if (item.media_type == 'image') {
-                    imgOvideoDesdeHasta.innerHTML += `<h3>${item.title}</h3> <img src="${item.url}">`
-                    
-                } else {
-                     imgOvideoDesdeHasta.innerHTML +=`<h3>${item.title}</h3> <iframe src="${item.url}" frameborder="0"></iframe>`
-                
-
-                }
-            });
-        })
-}
-*/
 botonHasta.onclick = function () {
-    if (date <= hoy) {
+    if (date.value <= hoy) {
     error.style.display = "none";
     fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&start_date=${dateDESDE.value}&end_date=${dateHASTA.value}`)
         .then(res => res.json())
@@ -127,22 +110,6 @@ botonCount.onclick = function () {
              contenedorCount.innerHTML +=` <iframe src="${fotos[index].url}" frameborder="0"></iframe>`
            }
         }})
+        
 }
 
-/*botonCount.onclick = function () {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&count=${cantidadF.value}`)
-         fotos.forEach(item => {
-                cantidadF.innerHTML = ""
-                console.log(item)
-                if (item.media_type == 'image') {
-                    contenedoCount.innerHTML += `${contenedoCount.innerHTML} <img src="${item.url}" alt="${item.title}">`
-                    
-                } else {
-                     contenedoCount.innerHTML +=`${contenedoCount.innerHTML} <iframe src="${item.url}" frameborder="0"></iframe>`
-                
-
-                }
-            });
-        }
-
-*/
