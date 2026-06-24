@@ -1,0 +1,218 @@
+@font-face {
+    font-family: RETRO_SPACE;
+    src: url(./fuentes/RETRO_SPACE.ttf) ;
+}
+@font-face {
+    font-family: Space;
+    src: url(./fuentes/Space.ttf) ;
+}
+@font-face {
+    font-family: SpaceCats;
+    src: url(./fuentes/SpaceCats.ttf) ;
+}
+@font-face {
+    font-family: SPACESUI;
+    src: url(./fuentes/SPACESUI.TTF) ;
+}
+@font-face {
+    font-family: Coolvetica\ Rg;
+    src: url(./fuentes/Coolvetica\ Rg.otf) ;
+}
+@font-face {
+    font-family: Super\ Pandora;
+    src: url(./fuentes/Super\ Pandora.ttf) ;
+}
+@font-face {
+    font-family: Eternalo;
+    src: url(./fuentes/Eternalo.ttf) ;
+}
+
+
+h1 {
+    
+    text-align: center;
+    font-size: 100px;
+    font-family: SPACESUI;
+    background-image: linear-gradient(135deg, #1fafcf, #5b08ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+     text-shadow: 2px 2px 5px rgba(199, 155, 246, 0.5);
+}
+ h3{
+     text-align: center;
+    font-size: 30px;
+    font-family:  Coolvetica\ Rg;
+    background-image: linear-gradient(135deg, #d1e0e3, #eac4dc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+     text-shadow: 2px 2px 5px rgba(179, 171, 188, 0.5);
+      font-weight: 200;
+      margin: 5%;
+ }
+  h2{
+     text-align: center;
+    font-size: 50px;
+    font-family: Super\ Pandora;
+    background-image: linear-gradient(135deg, #ff007f, #7928ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(236, 9, 187, 0.5);
+      font-weight: 200;
+      margin: 70px;
+ }
+ h4 {
+    display: block;  
+    margin: 20px auto;
+    color: #ffffff; 
+    padding: 12px 28px;
+    font-family: Coolvetica\ Rg;
+    font-size: 22px;
+     font-weight: 200;
+ }
+
+ .fotoDelDia, .videoDelDia, .fotoDATE, .videoDATE, .imagenesOvideos, .contedorCount{
+     display: none;
+    align-items: center;
+    height: 300px;
+    width: 500px;
+   margin: auto;
+     border: 3px solid #e05b9d;
+    box-shadow: 0 0 20px #e05b9d, inset 0 0 20px #e05b9d;
+    border-radius: 2%;
+transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+ }
+
+
+.gatafelicette{
+    
+     align-items: center;
+    height: 300px;
+    width: 500px;
+   margin: auto;
+     border: 3px solid #e05b9d;
+    box-shadow: 0 0 20px #e05b9d, inset 0 0 20px #e05b9d;
+    border-radius: 2%;
+transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.centrarFoto {
+     align-items: center;
+      margin: auto;
+}
+
+ .fotoDelDia:hover, .videoDelDia:hover,  .fotoDATE:hover, .videoDATE:hover, .imagenesOvideos:hover, .contedorCount:hover{
+ transform: scale(1.08);
+  box-shadow: 0 0 25px rgb(224, 91, 157), 
+                0 0 60px rgba(224, 91, 157, 0.8), 
+                inset 0 0 15px rgb(224, 91, 157);
+ }
+
+.centrar {
+display: flex;
+justify-content: center;
+padding-bottom: 5%;
+
+}
+
+ .acts {
+    
+    background-color: rgba(11, 19, 43, 0.75);
+     backdrop-filter: blur(2.4px);
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+     padding: 30px;
+      border-radius: 5%;
+      width: 800px; 
+    height: max-content;
+   
+ }
+
+ button {
+    display: block;  
+    margin: 20px auto;
+        background-color: white;
+    color: #4a5568; 
+    border: 2px solid #e2e8f0;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    font-family: Coolvetica\ Rg;
+    transition: all 0.3s ease;
+    
+ }
+
+ button:hover {
+     border-color: transparent; 
+    box-shadow: 0 6px 20px rgba(121, 40, 202, 0.2);
+    background-image: linear-gradient(135deg, #7928ca, #ff007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+
+
+.date, .dateDESDE, .dateHASTA, .cantidadN {
+    display: block;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 350px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family:Coolvetica\ Rg;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(25, 25, 50, 0.5);
+    border: 2px solid rgba(0, 242, 254, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    outline: none;
+  }
+
+  .date::-webkit-calendar-picker-indicator, .dateDESDE::-webkit-calendar-picker-indicator, .dateHASTA::-webkit-calendar-picker-indicator, .cantidadN::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    filter:  invert(50%) sepia(80%) saturate(1500%) hue-rotate(240deg) brightness(120%);
+  }
+
+.date:focus, .dateDESDE:focus, .dateHASTA:focus, .cantidadN:focus {
+    border-color: #a855f7; 
+    background-color: rgba(25, 15, 45, 0.8); 
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.7),
+                inset 0 0 8px rgba(168, 85, 247, 0.4);
+  }
+.cantidadN::placeholder {
+  color: rgba(255, 255, 255, 0.4); 
+  font-family: Coolvetica\ Rg;
+}
+
+
+.contenedor-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fondo {
+        position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    opacity: 90%;
+    
+}
+
+.fondoFOTO {
+        position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    
+    
+}
+
