@@ -23,7 +23,7 @@ let dateHASTA = document.querySelector('.dateHASTA')
 
 
 let cantidadF = document.querySelector('.cantidadN')
-let imgOvideoDesdeHasta = document.querySelector('.imagenesOvideos')
+let imgOvideoDesdeHasta = document.querySelector('.imgOvideoDesdeHasta')
 let contenedorCount = document.querySelector('.contedorCount')
 let error = document.querySelector('.error')
 let errorDesdeHasta = document.querySelector('.errorDesdeHasta')
@@ -57,8 +57,8 @@ if (date.value <= hoy) {
  fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&date=${date.value}`)
         .then(res => res.json())
         .then(fotos => {
-            videoDATE.src = " "
-            imagenDATE.src = " "
+            videoDATE.style.display = "none";
+            imagenDATE.style.display = "none";
             console.log(fotos)
             tituloDATE.textContent = fotos.title
             if (fotos.media_type == 'video') {
@@ -78,18 +78,28 @@ if (date.value <= hoy) {
    
 
 botonHasta.onclick = function () {
-    if (date.value <= hoy) {
-    error.style.display = "none";
+    if (dateDESDE.value && dateHASTA.value <= hoy) {
+    errorDesdeHasta.style.display = "none";
     fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&start_date=${dateDESDE.value}&end_date=${dateHASTA.value}`)
         .then(res => res.json())
         .then(fotos => {
+            imgOvideoDesdeHasta.style.display = "none";
            imgOvideoDesdeHasta.innerHTML = " "
            for (let index = 0; index < fotos.length; index++) {
             console.log(fotos[index])
             if (fotos[index].media_type == 'image') {
-            imgOvideoDesdeHasta.innerHTML += ` <img src="${fotos[index].url}" alt="${fotos[index].title}"  style="display: block;">`
+               imgOvideoDesdeHasta.style.display = "block";
+            imgOvideoDesdeHasta.innerHTML += ` 
+                                            <img class="imgContenedor" src="${fotos[index].url}" alt="${fotos[index].title}"  style="display: block;">
+                                            `
+                                           
+
            } else {
-             imgOvideoDesdeHasta.innerHTML +=` <iframe src="${fotos[index].url}" frameborder="0" style="display: block;"></iframe>`
+            imgOvideoDesdeHasta.style.display = "block";
+             imgOvideoDesdeHasta.innerHTML +=`
+                                             <iframe class="imgContenedor"  src="${fotos[index].url}" frameborder="0" style="display: block;"></iframe>
+                                            `
+                                            
            }
         }}) 
         } else {
@@ -102,14 +112,23 @@ botonCount.onclick = function () {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=8Zaw1E8Ttxz6woLUSyVRAOU41tlIaNy2hsnGHH0K&count=${cantidadF.value}`)
         .then(res => res.json())
         .then(fotos => {
-           cantidadF.innerHTML = " "
+         contenedorCount.style.display = "none";
+           contenedorCount.innerHTML = " "
            for (let index = 0; index < fotos.length; index++) {
+            console.log(fotos[index])
             if (fotos[index].media_type == 'image') {
-            contenedorCount.innerHTML += `<img src="${fotos[index].url}" alt="${fotos[index].title}">`
+               contenedorCount.style.display = "block";
+            contenedorCount.innerHTML += ` 
+                                            <img class="imgContenedor" src="${fotos[index].url}" alt="${fotos[index].title}"  style="display: block;">
+                                            `
            } else {
-             contenedorCount.innerHTML +=` <iframe src="${fotos[index].url}" frameborder="0"></iframe>`
+            contenedorCount.style.display = "block";
+             contenedorCount.innerHTML +=`
+                                             <iframe class="imgContenedor"  src="${fotos[index].url}" frameborder="0" style="display: block;"></iframe>
+                                            `
+
            }
-        }})
-        
-}
+        }}) 
+        } 
+
 
